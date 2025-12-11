@@ -1,0 +1,54 @@
+═══════════════════════════════════════════════════════
+                   QUICK COMMANDS
+═══════════════════════════════════════════════════════
+
+# Install dependencies
+pip3 install -r requirements.txt
+
+# Test with image
+python3 main.py --mode image --image test.jpg
+
+# Run camera
+python3 main.py --mode camera
+
+# Camera without AWS
+python3 main.py --mode camera --no-upload
+
+
+═══════════════════════════════════════════════════════
+                  WHAT EACH FILE DOES
+═══════════════════════════════════════════════════════
+
+main.py
+  → Entry point - run this to start
+  → Provides command-line interface
+  → Calls image_detector or camera_detector
+
+config.py
+  → All settings in one place
+  → AWS URL, Jetson ID, classes to detect
+  → Easy to customize
+
+model.py
+  → Loads YOLO model
+  → Runs detection on images
+  → Filters to target classes [0, 73, 67]
+  → Draws bounding boxes
+
+aws_uploader.py
+  → Encodes images to base64
+  → Builds JSON payload
+  → POSTs to AWS /upload endpoint
+  → Handles errors gracefully
+
+image_detector.py
+  → Processes single images
+  → Shows detection results
+  → Saves images with boxes
+  → Uploads to AWS
+
+camera_detector.py
+  → Opens camera feed
+  → Real-time detection
+  → Shows live video
+  → Uploads detections (debounced)

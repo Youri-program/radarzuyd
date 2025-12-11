@@ -1,0 +1,44 @@
+# Requirements for Jetson Nano (Python 3.6 - JetPack 4.6.1)
+# DO NOT use "pip install -r requirements-jetson.txt" directly!
+# Follow installation steps in JETSON_SETUP.md
+
+# These are the packages to install AFTER PyTorch and OpenCV:
+
+requests>=2.25.0
+numpy==1.19.5
+
+# Ultralytics for YOLOv5 (Python 3.6 compatible version)
+# Test which version works - may need older version
+# ultralytics==6.2.0  # Try this first
+# OR manually install YOLOv5:
+# git clone https://github.com/ultralytics/yolov5
+# cd yolov5
+# pip3 install -r requirements.txt
+
+
+# ============================================
+# IMPORTANT: Install in this order!
+# ============================================
+
+# 1. PyTorch (special Jetson wheel):
+#    wget https://nvidia.box.com/shared/static/fjtbno0vpo676a25cgvuqc1wty0fkkg6.whl -O torch-jetson.whl
+#    pip3 install torch-jetson.whl
+
+# 2. OpenCV (system package):
+#    sudo apt-get install python3-opencv
+
+# 3. These packages:
+#    pip3 install requests numpy==1.19.5
+
+# 4. YOLOv5 support - try one of:
+#    pip3 install ultralytics==6.2.0
+#    OR clone YOLOv5 repo directly
+
+
+# ============================================
+# Verify installation:
+# ============================================
+
+# python3 -c "import torch; print(torch.__version__)"
+# python3 -c "import cv2; print(cv2.__version__)"
+# python3 -c "from ultralytics import YOLO; print('YOLOv5 OK')"
