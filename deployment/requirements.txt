@@ -1,59 +1,18 @@
-# Python dependencies for Jetson Nano Object Detection System
-# Compatible with Python 3.6+ (for Jetson Nano JetPack 4.6.1)
+# Requirements for Jetson Orin Nano Deployment
+# JetPack 6.1 | Python 3.10 | CUDA 11.4
 
-# ============================================
-# Core Dependencies
-# ============================================
+# NOTE: Install PyTorch first with CUDA support:
+# pip3 install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu118
 
-# YOLO detection (YOLOv5 support - Python 3.6+ compatible)
-# For Jetson: Use older version compatible with Python 3.6
-ultralytics>=8.0.0  # For laptop with Python 3.8+
-# ultralytics==6.2.0  # Uncomment for Python 3.6 on Jetson
+# Computer Vision & ML
+ultralytics>=8.0.0          # YOLOv5/YOLOv8 support
+opencv-python>=4.5.0        # Image processing
+pillow>=9.0.0               # Image handling
 
-# Computer vision
-# NOTE: On Jetson, use system OpenCV instead of pip!
-# sudo apt-get install python3-opencv
-opencv-python>=4.5.0  # For laptop only
+# AWS Integration
+# boto3>=1.26.0               # AWS SDK
+requests>=2.28.0            # HTTP requests
 
-# HTTP requests (for AWS upload)
-requests>=2.25.0
-
-# Scientific computing
-numpy>=1.19.0,<1.24.0  # Python 3.6 compatible
-
-
-# ============================================
-# JETSON NANO SPECIFIC INSTALLATION
-# ============================================
-
-# ON JETSON NANO - DON'T USE THIS FILE DIRECTLY!
-# Follow these steps instead:
-
-# 1. Install PyTorch (special wheel for Jetson):
-#    wget https://nvidia.box.com/shared/static/fjtbno0vpo676a25cgvuqc1wty0fkkg6.whl -O torch-1.10.0-cp36-cp36m-linux_aarch64.whl
-#    pip3 install torch-1.10.0-cp36-cp36m-linux_aarch64.whl
-
-# 2. Install OpenCV (from apt, not pip):
-#    sudo apt-get update
-#    sudo apt-get install python3-opencv
-
-# 3. Install other packages:
-#    pip3 install requests numpy==1.19.5
-#    pip3 install ultralytics==6.2.0  # Or compatible version for Python 3.6
-
-# 4. Install torchvision:
-#    sudo apt-get install libjpeg-dev zlib1g-dev libpython3-dev
-#    pip3 install torchvision==0.11.0
-
-
-# ============================================
-# LAPTOP INSTALLATION (This file works!)
-# ============================================
-
-# On laptop with Python 3.8+:
-#   pip install -r requirements.txt
-
-# Or in venv:
-#   python3 -m venv .venv
-#   source .venv/bin/activate
-#   pip install -r requirements.txt
+# Utilities
+pyyaml>=6.0                 # Configuration files
+numpy>=1.21.0               # Array operations
