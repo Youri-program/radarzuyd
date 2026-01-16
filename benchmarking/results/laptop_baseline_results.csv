@@ -1,0 +1,7 @@
+model,version,size,inference_time_ms,fps,device,backend
+yolov5n,v5,n,38.36,26.1,laptop,pytorch
+yolov5s,v5,s,53.45,18.7,laptop,pytorch
+yolov5m,v5,m,83.93,11.9,laptop,pytorch
+yolo11n,v11,n,35.75,28.0,laptop,pytorch
+yolo11s,v11,s,56.82,17.6,laptop,pytorch
+yolo11m,v11,m,90.69,11.0,laptop,pytorch
