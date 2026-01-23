@@ -2,7 +2,7 @@
 
 A modern, responsive web dashboard for real-time object detection monitoring built with React 19.2, TypeScript, and Tailwind CSS.
 
-## 🎯 Overview
+## Overview
 
 This frontend provides an intuitive interface for:
 - **Live View**: Real-time WebRTC video streaming with detection overlays
@@ -10,44 +10,44 @@ This frontend provides an intuitive interface for:
 - **Historical Review**: Browse past detection events with on-demand image loading
 - **System Control**: Start/stop tracking, mark threats, manage video streams
 
-## ✨ Key Features
+##  Key Features
 
 ### Live Video Streaming
-- ✅ WebRTC peer-to-peer video from Jetson device
-- ✅ Sub-second latency (~400ms on local network)
-- ✅ Connection state indicators (idle, connecting, streaming, error)
-- ✅ Automatic reconnection on dropped connections
-- ✅ Visual feedback with status messages
+-  WebRTC peer-to-peer video from Jetson device
+-  Sub-second latency (~400ms on local network)
+-  Connection state indicators (idle, connecting, streaming, error)
+-  Automatic reconnection on dropped connections
+-  Visual feedback with status messages
 
 ### Real-Time Detection Display
-- ✅ Auto-refresh toggle (2-second polling when enabled)
-- ✅ Manual refresh capability when auto-refresh off
-- ✅ Live detection count and FPS display
-- ✅ Object names with confidence scores
-- ✅ Timestamp of last update
+-  Auto-refresh toggle (2-second polling when enabled)
+-  Manual refresh capability when auto-refresh off
+-  Live detection count and FPS display
+-  Object names with confidence scores
+-  Timestamp of last update
 
 ### Tracking Control
-- ✅ Start/stop tracking commands
-- ✅ Mark detections as security threats
-- ✅ Visual feedback for all commands
-- ✅ Loading states preventing duplicate requests
+-  Start/stop tracking commands
+-  Mark detections as security threats
+-  Visual feedback for all commands
+-  Loading states preventing duplicate requests
 
 ### History Browser
-- ✅ Paginated detection record list
-- ✅ On-demand image loading for performance
-- ✅ Formatted timestamps in local timezone
-- ✅ Detection metadata display
-- ✅ Refresh capability for latest data
+-  Paginated detection record list
+-  On-demand image loading for performance
+-  Formatted timestamps in local timezone
+-  Detection metadata display
+-  Refresh capability for latest data
 
 ### User Experience
-- ✅ Secure authentication with AWS Cognito
-- ✅ 60-minute session timeout
-- ✅ Automatic logout on token expiration
-- ✅ Responsive design (desktop, tablet, mobile)
-- ✅ Dark theme optimized for monitoring
-- ✅ HDCI principles implementation
+-  Secure authentication with AWS Cognito
+-  60-minute session timeout
+-  Automatic logout on token expiration
+-  Responsive design (desktop, tablet, mobile)
+-  Dark theme optimized for monitoring
+-  HDCI principles implementation
 
-## 🏗️ Technology Stack
+##  Technology Stack
 
 | Technology | Version | Purpose |
 |------------|---------|---------|
@@ -58,7 +58,7 @@ This frontend provides an intuitive interface for:
 | WebRTC API | Native | Real-time video streaming |
 | Fetch API | Native | RESTful API communication |
 
-## 📋 Prerequisites
+##  Prerequisites
 
 - **Node.js**: 18.0 or later
 - **npm**: 9.0 or later
@@ -68,7 +68,7 @@ This frontend provides an intuitive interface for:
   - Safari 17+
   - Edge 120+
 
-## 🚀 Quick Start
+##  Quick Start
 
 ### Installation
 
@@ -133,48 +133,7 @@ npm run preview
 npm run lint
 ```
 
-## 📁 Project Structure
-
-```
-aiops-ui/
-├── public/                    # Static assets
-│   └── vite.svg
-│
-├── src/
-│   ├── components/            # Reusable UI components
-│   │   ├── Sidebar.tsx       # Navigation sidebar
-│   │   ├── TopBar.tsx        # Header with user info
-│   │   ├── DetectionList.tsx # Detection display component
-│   │   └── StatusPill.tsx    # Status indicator badge
-│   │
-│   ├── pages/                 # Main application views
-│   │   ├── Login.tsx         # Authentication page
-│   │   ├── LiveView.tsx      # Real-time monitoring dashboard
-│   │   └── History.tsx       # Historical detection browser
-│   │
-│   ├── services/              # API and business logic
-│   │   ├── auth.ts           # Authentication management
-│   │   ├── aws-authenticated.ts  # AWS API integration
-│   │   └── jetson.ts         # Jetson device control
-│   │
-│   ├── types/                 # TypeScript definitions
-│   │   └── index.ts          # Shared interfaces
-│   │
-│   ├── config.ts              # Environment configuration
-│   ├── App.tsx                # Root component with routing
-│   ├── App.css                # Global styles
-│   ├── main.tsx               # Application entry point
-│   └── index.css              # Tailwind base styles
-│
-├── package.json               # Dependencies and scripts
-├── tsconfig.json              # TypeScript configuration
-├── vite.config.ts             # Vite build configuration
-├── tailwind.config.js         # Tailwind CSS configuration
-├── eslint.config.js           # ESLint rules
-└── README.md                  # This file
-```
-
-## 🎨 Component Architecture
+##  Component Architecture
 
 ### Authentication Flow
 
@@ -218,7 +177,7 @@ Props (Parent → Child communication)
 Callbacks (Child → Parent communication)
 ```
 
-## 🔑 Key Components
+##  Key Components
 
 ### App.tsx (Root Component)
 
@@ -299,7 +258,7 @@ loadedImages: Map<string, string>       // detection_id → image URL
 imageLoading: Record<string, boolean>   // Per-image loading state
 ```
 
-## 🔌 API Integration
+##  API Integration
 
 ### Authentication Service (auth.ts)
 
@@ -357,7 +316,7 @@ sendStopTracking(): Promise<void>
 sendMarkThreat(): Promise<void>
 ```
 
-## 🎨 Design System
+##  Design System
 
 ### Color Palette (Dark Theme)
 
@@ -421,7 +380,7 @@ md:grid-cols-2             /* Tablet: 2 columns */
 xl:grid-cols-[2fr_1fr]     /* Desktop: 2:1 ratio */
 ```
 
-## 🧪 Testing
+##  Testing
 
 ### Manual Testing Checklist
 
@@ -464,7 +423,7 @@ xl:grid-cols-[2fr_1fr]     /* Desktop: 2:1 ratio */
 - [ ] Safari 17+: Full functionality
 - [ ] Edge 120+: Full functionality
 
-## 🐛 Troubleshooting
+##  Troubleshooting
 
 ### Common Issues
 
@@ -583,7 +542,7 @@ npm install --save-dev @types/react @types/react-dom
 rm -rf .tsc-cache
 ```
 
-## 🎯 HDCI Principles Applied
+##  HDCI Principles Applied
 
 This dashboard implements all 10 Nielsen Norman Group usability heuristics:
 
@@ -649,41 +608,41 @@ This dashboard implements all 10 Nielsen Norman Group usability heuristics:
 - Loading states show progress
 - This README provides detailed guidance
 
-## 📊 Performance Metrics
+##  Performance Metrics
 
 | Metric | Target | Achieved | Status |
 |--------|--------|----------|---------|
-| First Contentful Paint | <1.5s | ~800ms | ✅ |
-| Time to Interactive | <3s | ~1.2s | ✅ |
-| Bundle Size | <500KB | ~320KB | ✅ |
-| Lighthouse Score | >90 | 94 | ✅ |
-| Login Response | <2s | <1s | ✅ |
-| Detection Fetch | <1s | ~500ms | ✅ |
-| Image Load | <2s | ~1s | ✅ |
-| WebRTC Connect | <5s | 2-3s | ✅ |
+| First Contentful Paint | <1.5s | ~800ms |  |
+| Time to Interactive | <3s | ~1.2s |  |
+| Bundle Size | <500KB | ~320KB |  |
+| Lighthouse Score | >90 | 94 |  |
+| Login Response | <2s | <1s |  |
+| Detection Fetch | <1s | ~500ms |  |
+| Image Load | <2s | ~1s |  |
+| WebRTC Connect | <5s | 2-3s |  |
 
-## 🔒 Security Best Practices
+##  Security Best Practices
 
 ### Authentication
-- ✅ JWT tokens stored in sessionStorage (auto-cleared)
-- ✅ Tokens NOT stored in localStorage (persistent)
-- ✅ 60-minute session timeout
-- ✅ Automatic logout on 401 response
-- ✅ Authorization header on all protected requests
+-  JWT tokens stored in sessionStorage (auto-cleared)
+-  Tokens NOT stored in localStorage (persistent)
+-  60-minute session timeout
+-  Automatic logout on 401 response
+-  Authorization header on all protected requests
 
 ### Data Protection
-- ✅ HTTPS for all API communications
-- ✅ No credentials in frontend code
-- ✅ No sensitive data in console logs (production)
-- ✅ Pre-signed URLs with expiration
+-  HTTPS for all API communications
+-  No credentials in frontend code
+-  No sensitive data in console logs (production)
+-  Pre-signed URLs with expiration
 
 ### Frontend Security
-- ✅ Input validation on forms
-- ✅ XSS protection through React's built-in escaping
-- ✅ CSRF protection through JWT tokens
-- ✅ Secure configuration management
+-  Input validation on forms
+-  XSS protection through React's built-in escaping
+-  CSRF protection through JWT tokens
+-  Secure configuration management
 
-## 🚀 Deployment
+##  Deployment
 
 ### Build for Production
 
@@ -752,7 +711,7 @@ module.exports = {
 }
 ```
 
-## 🤝 Contributing
+##  Contributing
 
 ### Code Style
 
@@ -790,7 +749,7 @@ const [flag, setFlag] = useState(false);
 const [msg, setMsg] = useState('');
 ```
 
-## 📚 Learning Resources
+##  Learning Resources
 
 ### React & TypeScript
 - [React Official Docs](https://react.dev/)
