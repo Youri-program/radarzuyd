@@ -20,6 +20,6 @@ for model_name in models_to_download:
     if os.path.exists(model_name):
         shutil.move(model_name, f'models/{model_name}')
     
-    print(f"✓ {model_name} downloaded to models/")
+    print(f" {model_name} downloaded to models/")
 
 print("\nAll models downloaded and ready!")

@@ -49,14 +49,14 @@ def run_camera_detection(upload_enabled=config.ENABLE_UPLOAD):
         uploader = AWSClient()
     else:
         uploader = None
-        print("⏭️  AWS upload disabled\n")
+        print("  AWS upload disabled\n")
     
     # Open camera
-    print("📷 Opening camera...")
+    print("Opening camera...")
     cap = cv2.VideoCapture(config.CAMERA_INDEX)
     
     if not cap.isOpened():
-        print(f"❌ Could not open camera {config.CAMERA_INDEX}")
+        print(f" Could not open camera {config.CAMERA_INDEX}")
         return False
     
     # Set camera properties
@@ -64,7 +64,7 @@ def run_camera_detection(upload_enabled=config.ENABLE_UPLOAD):
     cap.set(cv2.CAP_PROP_FRAME_HEIGHT, config.CAMERA_HEIGHT)
     cap.set(cv2.CAP_PROP_FPS, config.CAMERA_FPS)
     
-    print(f"✅ Camera opened: {config.CAMERA_WIDTH}x{config.CAMERA_HEIGHT} @ {config.CAMERA_FPS}fps")
+    print(f"Camera opened: {config.CAMERA_WIDTH}x{config.CAMERA_HEIGHT} @ {config.CAMERA_FPS}fps")
     print("\n" + "=" * 60)
     print("Press 'q' to quit")
     print("=" * 60 + "\n")
@@ -85,7 +85,7 @@ def run_camera_detection(upload_enabled=config.ENABLE_UPLOAD):
             ret, frame = cap.read()
             
             if not ret:
-                print("❌ Failed to capture frame")
+                print(" Failed to capture frame")
                 break
             
             current_time = time.time()
@@ -164,7 +164,7 @@ def run_camera_detection(upload_enabled=config.ENABLE_UPLOAD):
             
             # Upload NEW detections to AWS
             if uploader and new_classes:
-                print(f"\n🆕 New detection(s): {', '.join(new_classes)}")
+                print(f"\n New detection(s): {', '.join(new_classes)}")
                 
                 # Upload each new class
                 for det in detections:
@@ -212,17 +212,17 @@ def run_camera_detection(upload_enabled=config.ENABLE_UPLOAD):
             
             # Check for 'q' key
             if cv2.waitKey(1) & 0xFF == ord('q'):
-                print("\n👋 Quitting...")
+                print("\n Quitting...")
                 break
     
     except KeyboardInterrupt:
-        print("\n\n⚠️  Interrupted by user")
+        print("\n\n Interrupted by user")
     
     finally:
         # Cleanup
         cap.release()
         cv2.destroyAllWindows()
-        print("\n✅ Camera released")
+        print("\n Camera released")
     
     return True
 

@@ -14,18 +14,6 @@ This deployment system runs YOLOv5 object detection on edge hardware, detects sp
 
 ---
 
-## Features
-
-- ✅ Real-time object detection with YOLOv5
-- ✅ GPU-accelerated inference (CUDA)
-- ✅ Detects: person (0)
-- ✅ Single image and camera feed modes
-- ✅ AWS cloud integration for detection uploads
-- ✅ Configurable confidence thresholds
-- ✅ Easy to deploy and run
-
----
-
 ## Quick Start
 
 ### 1. Setup (First Time Only)
@@ -67,31 +55,6 @@ python3 main.py --mode camera
 
 # Camera without AWS upload (testing)
 python3 main.py --mode camera --no-upload
-```
-
----
-
-## Project Structure
-
-```
-deployment/
-├── SETUP_ORIN.md           # Setup guide (READ THIS FIRST!)
-├── README.md               # This file
-├── requirements.txt        # Python dependencies
-│
-├── main.py                 # Entry point - run this
-├── config.py               # Configuration (AWS, classes, etc.)
-├── model.py                # YOLO model handler
-├── camera_detector.py      # Camera inference
-├── image_detector.py       # Single image inference
-├── aws_uploader.py         # AWS upload functionality
-├── download_models.py      # Model download script
-│
-├── models/                 # YOLOv5 models
-│   └── yolov5n.pt
-├── testimages/             # Test images
-│   └── test_image3.jpg
-└── .venv/                  # Virtual environment
 ```
 
 ---
@@ -242,24 +205,6 @@ MODEL_PATH = "models/yolov5n.pt"
 
 # Reduce camera resolution in config.py
 ```
-
----
-
-## Next Steps
-
-1. ✅ **Test deployment** on Jetson Orin Nano
-2. ⏭️ **TensorRT optimization** for 2-3x speedup
-3. ⏭️ **Model benchmarking** (compare YOLOv5n/s/m)
-4. ⏭️ **Docker containerization** (optional)
-5. ⏭️ **Integration testing** with AWS and UI
-
----
-
-## Support
-
-For setup help, see [SETUP_ORIN.md](SETUP_ORIN.md).
-
-For questions about the project requirements, see [project documentation](../README.md).
 
 ---
 

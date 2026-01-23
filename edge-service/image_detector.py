@@ -97,25 +97,25 @@ def process_image(image_path, upload_enabled=config.ENABLE_UPLOAD):
     
     # Check if image exists
     if not os.path.exists(image_path):
-        print(f"❌ Image not found: {image_path}")
+        print(f" Image not found: {image_path}")
         return False
     
     # Load image
-    print(f"\n📸 Loading image: {image_path}")
+    print(f"\n Loading image: {image_path}")
     image = cv2.imread(image_path)
     
     if image is None:
-        print(f"❌ Could not read image: {image_path}")
+        print(f" Could not read image: {image_path}")
         return False
     
-    print(f"✅ Image loaded: {image.shape[1]}x{image.shape[0]} pixels")
+    print(f" Image loaded: {image.shape[1]}x{image.shape[0]} pixels")
     
     # Initialize detector
     print("\n" + "="*60)
     detector = YOLODetector()
     
     # Run detection
-    print("🔍 Running detection...")
+    print(" Running detection...")
     detections = detector.detect(image)
     
     # Print results
@@ -124,23 +124,23 @@ def process_image(image_path, upload_enabled=config.ENABLE_UPLOAD):
     print("="*60)
     
     if detections:
-        print(f"✅ Found {len(detections)} objects:")
+        print(f" Found {len(detections)} objects:")
         for i, det in enumerate(detections, 1):
             print(f"  {i}. {det['class_name']}: {det['confidence']:.2%} confidence")
     else:
-        print("❌ No target objects detected")
+        print(" No target objects detected")
         print(f"   (Looking for: {', '.join(config.CLASS_NAMES.values())})")
         return True
     
     # Draw colored bounding boxes
-    print("\n🎨 Drawing colored bounding boxes...")
+    print("\n Drawing colored bounding boxes...")
     image_with_boxes = draw_detections_colored(image, detections, config.CLASS_NAMES)
     
     # Save result
     base_name = os.path.splitext(os.path.basename(image_path))[0]
     output_path = f"{base_name}_detected.jpg"
     cv2.imwrite(output_path, image_with_boxes)
-    print(f"✅ Saved result: {output_path}")
+    print(f" Saved result: {output_path}")
     
     # Upload to AWS
     if upload_enabled and detections:
@@ -161,14 +161,14 @@ def process_image(image_path, upload_enabled=config.ENABLE_UPLOAD):
                     uploaded_classes.add(class_name)
         
         if uploaded_classes:
-            print(f"✅ Uploaded {len(uploaded_classes)} unique detections")
+            print(f" Uploaded {len(uploaded_classes)} unique detections")
         else:
-            print("⚠️  Upload failed (check AWS settings)")
+            print("  Upload failed (check AWS settings)")
     elif not upload_enabled:
-        print("\n⏭️  Skipping AWS upload (disabled)")
+        print("\n  Skipping AWS upload (disabled)")
     
     print("\n" + "="*60)
-    print("✅ Processing complete!")
+    print(" Processing complete!")
     print("="*60)
     
     return True

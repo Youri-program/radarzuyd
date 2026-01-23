@@ -37,19 +37,19 @@ class YOLODetector:
             confidence_threshold: Minimum confidence (0.0 to 1.0)
             device: "cuda" or "cpu"
         """
-        print(f"📦 Loading model: {model_path}")
-        print(f"🎯 Target classes: {target_classes}")
-        print(f"📊 Confidence threshold: {confidence_threshold}")
-        print(f"💻 Device: {device}")
+        print(f" Loading model: {model_path}")
+        print(f" Target classes: {target_classes}")
+        print(f" Confidence threshold: {confidence_threshold}")
+        print(f" Device: {device}")
         
         # Check if model file exists locally
         if not os.path.exists(model_path):
-            print(f"⚠️  WARNING: Model file not found at '{model_path}'")
+            print(f"  WARNING: Model file not found at '{model_path}'")
             print(f"   Ultralytics will attempt to download it...")
         else:
             abs_path = os.path.abspath(model_path)
             file_size = os.path.getsize(model_path) / (1024 * 1024)  # MB
-            print(f"✅ Found local model: {abs_path}")
+            print(f" Found local model: {abs_path}")
             print(f"   File size: {file_size:.1f} MB")
         
         # Load model
@@ -58,7 +58,7 @@ class YOLODetector:
         self.confidence_threshold = confidence_threshold
         self.device = device
         
-        print("✅ Model loaded successfully!\n")
+        print(" Model loaded successfully!\n")
     
     def detect(self, image):
         """
@@ -180,16 +180,16 @@ if __name__ == "__main__":
     
     image = cv2.imread(image_path)
     if image is None:
-        print(f"❌ Could not load image: {image_path}")
+        print(f" Could not load image: {image_path}")
         sys.exit(1)
     
-    print(f"📸 Processing: {image_path}")
+    print(f" Processing: {image_path}")
     
     # Run detection
     detections = detector.detect(image)
     
     # Print results
-    print(f"\n✅ Found {len(detections)} detections:")
+    print(f"\n Found {len(detections)} detections:")
     for det in detections:
         print(f"  - {det['class_name']}: {det['confidence']:.2%}")
     
@@ -198,4 +198,4 @@ if __name__ == "__main__":
         img_with_boxes = detector.draw_detections(image, detections)
         output_path = "test_output.jpg"
         cv2.imwrite(output_path, img_with_boxes)
-        print(f"\n💾 Saved result to: {output_path}")
+        print(f"\n Saved result to: {output_path}")

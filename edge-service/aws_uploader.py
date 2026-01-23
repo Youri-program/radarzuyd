@@ -65,7 +65,7 @@ class AWSClient:
         """
         # Check connection first (internal check)
         if not self.endpoint_ok():
-            print("⚠️  AWS offline: skipping upload")
+            print("  AWS offline: skipping upload")
             return None
 
         # Encode image to base64
@@ -84,13 +84,13 @@ class AWSClient:
         try:
             r = requests.post(self.upload_url, json=payload, timeout=2)
             if 200 <= r.status_code < 300:
-                print(f"✅ Uploaded: {object_name} (Status: {r.status_code})")
+                print(f" Uploaded: {object_name} (Status: {r.status_code})")
                 return r.status_code
             else:
-                print(f"⚠️  Upload failed: HTTP {r.status_code}")
+                print(f" Upload failed: HTTP {r.status_code}")
                 return None
         except Exception as e:
-            print(f"⚠️  Upload error: {e}")
+            print(f" Upload error: {e}")
             return None
 
 

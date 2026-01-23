@@ -10,9 +10,7 @@ from pathlib import Path
 MODEL_PATH = 'models/yolo11s.pt'
 OUTPUT_NAME = 'yolo11s.engine'
 
-print("=" * 70)
 print("EXPORTING YOLOv11s TO TENSORRT")
-print("=" * 70)
 print()
 
 # Check if model exists
@@ -42,14 +40,12 @@ try:
     
     print()
     print("[SUCCESS] Export complete!")
-    print("=" * 70)
     print(f"Saved: models/{OUTPUT_NAME}")
     print()
     
 except Exception as e:
     print()
     print("[ERROR] Export failed!")
-    print("=" * 70)
     print(f"Error: {e}")
     print()
     exit(1)

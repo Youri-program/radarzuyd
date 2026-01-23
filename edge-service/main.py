@@ -105,7 +105,7 @@ Examples:
     if args.mode == 'image':
         # Image mode
         if not args.image:
-            print("❌ Error: --image required for image mode")
+            print(" Error: --image required for image mode")
             print("\nUsage: python3 main.py --mode image --image photo.jpg")
             sys.exit(1)
         

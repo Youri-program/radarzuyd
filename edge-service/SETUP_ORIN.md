@@ -57,18 +57,18 @@ pip3 install -r requirements.txt
 # Verify CUDA works
 python3 << 'EOF'
 import torch
-print(f"✅ PyTorch: {torch.__version__}")
-print(f"✅ CUDA available: {torch.cuda.is_available()}")
+print(f" PyTorch: {torch.__version__}")
+print(f" CUDA available: {torch.cuda.is_available()}")
 if torch.cuda.is_available():
-    print(f"✅ GPU: {torch.cuda.get_device_name(0)}")
+    print(f" GPU: {torch.cuda.get_device_name(0)}")
 EOF
 ```
 
 **Expected output:**
 ```
-✅ PyTorch: 2.x.x
-✅ CUDA available: True
-✅ GPU: Orin Nano
+ PyTorch: 2.x.x
+ CUDA available: True
+ GPU: Orin Nano
 ```
 
 ---
@@ -208,14 +208,3 @@ deactivate
 
 ---
 
-## Summary
-
-✅ **What makes Orin Nano easier:**
-- Native Python 3.10 support
-- CUDA works with pip install
-- No special wheels needed
-- Standard venv workflow
-
----
-
-**You're ready to go!** 🚀
